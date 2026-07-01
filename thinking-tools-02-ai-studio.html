@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Before You Invite AI Into the Studio — CHAMY·XYZ Thinking Tools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════
+   CHAMY·XYZ — BRAND TOKENS
+   Thinking Tools No. 02
+   ═══════════════════════════════════════════════ */
+:root {
+  --cb-amber:     #C9922A;
+  --cb-amber-lt:  #F0D9A8;
+  --cb-amber-dim: #8C631C;
+  --cb-slate:     #1C1C1A;
+  --cb-slate-mid: #3A3A36;
+  --cb-slate-soft:#6B6B65;
+  --cb-ghost:     #F7F5F0;
+  --cb-ghost-warm:#EDE9E0;
+  --cb-rule:      #D6D0C4;
+  --cb-rule-lt:   #ECEAE4;
+  --cb-terra:     #8B3A24;
+  --cb-sage:      #4A6647;
+  --cb-risk-hi:   #8B3A24;
+  --cb-risk-mid:  #8C631C;
+  --cb-risk-lo:   #4A6647;
+  --cb-risk-neu:  #5A5A54;
+
+  --ff-display:   'Cormorant Garamond', Georgia, serif;
+  --ff-mono:      'Space Mono', 'Courier New', monospace;
+
+  --middot: '·';
+  --section-mark: '§';
+
+  --max-w: 820px;
+  --col-gap: 2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 17px; scroll-behavior: smooth; }
+
+body {
+  background: var(--cb-ghost);
+  color: var(--cb-slate);
+  font-family: var(--ff-display);
+  font-weight: 400;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── GRAIN OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 999;
+  opacity: .6;
+}
+
+/* ══════════════════════════════════════
+   LAYOUT CONTAINER
+   ══════════════════════════════════════ */
+.cb-page {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+
+/* ══════════════════════════════════════
+   MASTHEAD
+   ══════════════════════════════════════ */
+.cb-masthead {
+  border-top: 2.5px solid var(--cb-slate);
+  border-bottom: 0.5px solid var(--cb-rule);
+  padding: 1.25rem 0 1.1rem;
+  margin-bottom: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 1rem;
+}
+
+.cb-series-line {
+  font-family: var(--ff-mono);
+  font-size: .65rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--cb-slate-soft);
+  margin-bottom: .4rem;
+}
+
+.cb-series-line span {
+  color: var(--cb-amber);
+}
+
+.cb-title {
+  font-family: var(--ff-display);
+  font-size: 2.6rem;
+  font-weight: 500;
+  letter-spacing: -.01em;
+  line-height: 1.05;
+  color: var(--cb-slate);
+}
+
+.cb-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--cb-slate-mid);
+}
+
+.cb-subtitle {
+  font-family: var(--ff-display);
+  font-size: 1.05rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--cb-slate-mid);
+  margin-top: .4rem;
+  line-height: 1.5;
+}
+
+.cb-sig-block {
+  text-align: right;
+}
+
+.cb-sig {
+  font-family: var(--ff-mono);
+  font-size: .7rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--cb-slate);
+  text-decoration: none;
+  display: block;
+  margin-bottom: .25rem;
+}
+
+.cb-sig .cb-dot { color: var(--cb-amber); }
+
+.cb-sig:hover { color: var(--cb-amber); }
+
+.cb-issue-meta {
+  font-family: var(--ff-mono);
+  font-size: .58rem;
+  color: var(--cb-slate-soft);
+  letter-spacing: .06em;
+  line-height: 1.8;
+}
+
+/* ══════════════════════════════════════
+   OPENING PROVOCATION
+   ══════════════════════════════════════ */
+.cb-lede {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: var(--col-gap);
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 0.5px solid var(--cb-rule);
+}
+
+.cb-lede-body {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--cb-slate);
+}
+
+.cb-lede-body p + p { margin-top: .85rem; }
+
+.cb-drop-cap::first-letter {
+  font-size: 4.2rem;
+  font-weight: 600;
+  float: left;
+  line-height: .82;
+  margin-right: .12em;
+  margin-top: .08em;
+  color: var(--cb-amber);
+}
+
+.cb-pull {
+  border-left: 2px solid var(--cb-amber);
+  padding: .75rem 0 .75rem 1.25rem;
+  align-self: start;
+  position: sticky;
+  top: 2rem;
+}
+
+.cb-pull-quote {
+  font-family: var(--ff-display);
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--cb-slate);
+}
+
+.cb-pull-attr {
+  font-family: var(--ff-mono);
+  font-size: .58rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--cb-amber-dim);
+  margin-top: .6rem;
+}
+
+/* ══════════════════════════════════════
+   SECTION HEADER
+   ══════════════════════════════════════ */
+.cb-section-head {
+  font-family: var(--ff-mono);
+  font-size: .62rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--cb-amber);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+.cb-section-head::after {
+  content: '';
+  flex: 1;
+  height: .5px;
+  background: var(--cb-rule);
+}
+
+/* ══════════════════════════════════════
+   PRESSURE STRIPS — five fault lines
+   ══════════════════════════════════════ */
+.cb-pressure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  gap: 8px;
+  margin-bottom: 2.5rem;
+}
+
+.cb-pressure {
+  background: var(--cb-ghost-warm);
+  border: .5px solid var(--cb-rule);
+  border-top: 2.5px solid var(--cb-rule);
+  padding: .85rem .9rem .9rem;
+  cursor: pointer;
+  transition: border-top-color .15s, background .15s;
+  position: relative;
+}
+
+.cb-pressure[data-risk="high"]   { border-top-color: var(--cb-risk-hi); }
+.cb-pressure[data-risk="medium"] { border-top-color: var(--cb-risk-mid); }
+.cb-pressure[data-risk="active"] { border-top-color: var(--cb-amber); }
+
+.cb-pressure:hover { background: #fff; }
+
+.cb-p-index {
+  font-family: var(--ff-mono);
+  font-size: .55rem;
+  letter-spacing: .1em;
+  color: var(--cb-slate-soft);
+  margin-bottom: .3rem;
+}
+
+.cb-p-name {
+  font-family: var(--ff-display);
+  font-size: .95rem;
+  font-weight: 500;
+  color: var(--cb-slate);
+  line-height: 1.3;
+  margin-bottom: .4rem;
+}
+
+.cb-p-concepts {
+  font-family: var(--ff-mono);
+  font-size: .52rem;
+  letter-spacing: .06em;
+  color: var(--cb-amber-dim);
+  margin-bottom: .5rem;
+}
+
+.cb-p-risk-label {
+  font-family: var(--ff-mono);
+  font-size: .52rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+}
+
+.cb-p-risk-label::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cb-pressure[data-risk="high"] .cb-p-risk-label   { color: var(--cb-risk-hi); }
+.cb-pressure[data-risk="high"] .cb-p-risk-label::before { background: var(--cb-risk-hi); }
+.cb-pressure[data-risk="medium"] .cb-p-risk-label { color: var(--cb-risk-mid); }
+.cb-pressure[data-risk="medium"] .cb-p-risk-label::before { background: var(--cb-risk-mid); }
+.cb-pressure[data-risk="active"] .cb-p-risk-label { color: var(--cb-amber); }
+.cb-pressure[data-risk="active"] .cb-p-risk-label::before { background: var(--cb-amber); }
+
+/* expanded detail */
+.cb-p-detail {
+  display: none;
+  margin-top: .65rem;
+  padding-top: .65rem;
+  border-top: .5px solid var(--cb-rule);
+  font-size: .82rem;
+  line-height: 1.6;
+  color: var(--cb-slate-mid);
+}
+
+.cb-p-detail .cb-misread {
+  font-family: var(--ff-mono);
+  font-size: .58rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--cb-risk-hi);
+  display: block;
+  margin-bottom: .2rem;
+}
+
+.cb-p-detail .cb-reframe {
+  font-family: var(--ff-mono);
+  font-size: .58rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--cb-sage);
+  display: block;
+  margin-top: .5rem;
+  margin-bottom: .2rem;
+}
+
+.cb-p-detail p { margin-bottom: .3rem; }
+
+.cb-pressure.open .cb-p-detail { display: block; }
+.cb-pressure.open { background: #fff; }
+
+.cb-pressure-note {
+  font-family: var(--ff-mono);
+  font-size: .57rem;
+  color: var(--cb-slate-soft);
+  letter-spacing: .04em;
+  margin-top: .4rem;
+  margin-bottom: 2rem;
+}
+
+/* ══════════════════════════════════════
+   DECISION FLOWS
+   ══════════════════════════════════════ */
+.cb-flows {
+  margin-bottom: 2.5rem;
+}
+
+.cb-flow {
+  margin-bottom: 1.75rem;
+  border: .5px solid var(--cb-rule);
+  background: #fff;
+}
+
+.cb-flow-header {
+  background: var(--cb-slate);
+  color: var(--cb-ghost);
+  padding: .6rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: .75rem;
+}
+
+.cb-flow-num {
+  font-family: var(--ff-mono);
+  font-size: .6rem;
+  letter-spacing: .1em;
+  color: var(--cb-amber);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.cb-flow-title {
+  font-family: var(--ff-display);
+  font-size: .95rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.cb-flow-body {
+  padding: 0;
+}
+
+.cb-step {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  border-bottom: .5px solid var(--cb-rule-lt);
+}
+
+.cb-step:last-child { border-bottom: none; }
+
+.cb-step-spine {
+  background: var(--cb-ghost-warm);
+  border-right: .5px solid var(--cb-rule-lt);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: .9rem 0 .9rem;
+  gap: 6px;
+}
+
+.cb-step-node {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--cb-slate);
+  color: var(--cb-ghost);
+  font-family: var(--ff-mono);
+  font-size: .58rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cb-step-connector {
+  width: 1px;
+  background: var(--cb-rule);
+  flex: 1;
+  min-height: 12px;
+}
+
+.cb-step-content {
+  padding: .9rem 1rem;
+}
+
+.cb-step-q {
+  font-family: var(--ff-display);
+  font-size: .98rem;
+  font-weight: 500;
+  color: var(--cb-slate);
+  margin-bottom: .55rem;
+  line-height: 1.4;
+}
+
+.cb-branch {
+  display: flex;
+  gap: .6rem;
+  align-items: flex-start;
+  margin-bottom: .35rem;
+  font-size: .83rem;
+  line-height: 1.55;
+  color: var(--cb-slate-mid);
+}
+
+.cb-branch-marker {
+  font-family: var(--ff-mono);
+  font-size: .6rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  padding: 2px 6px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.yes-marker { background: #E8F0E9; color: var(--cb-sage); }
+.no-marker  { background: #F2E8E5; color: var(--cb-terra); }
+
+.cb-outcome {
+  display: inline-block;
+  font-family: var(--ff-mono);
+  font-size: .55rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 2px;
+  margin-left: .35rem;
+  vertical-align: middle;
+}
+
+.out-proceed { background: #E8F0E9; color: var(--cb-sage); }
+.out-caution { background: #F7EDD6; color: var(--cb-risk-mid); }
+.out-pause   { background: #F2E8E5; color: var(--cb-terra); }
+
+/* ══════════════════════════════════════
+   VOICE PANEL — quotes
+   ══════════════════════════════════════ */
+.cb-voices {
+  margin-bottom: 2.5rem;
+  columns: 2;
+  column-gap: var(--col-gap);
+}
+
+.cb-voice {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  padding: .9rem 1rem;
+  background: #fff;
+  border: .5px solid var(--cb-rule);
+  border-left: 2.5px solid var(--cb-rule);
+}
+
+.cb-voice[data-register="ip"]    { border-left-color: var(--cb-risk-mid); }
+.cb-voice[data-register="env"]   { border-left-color: var(--cb-sage); }
+.cb-voice[data-register="hall"]  { border-left-color: var(--cb-terra); }
+.cb-voice[data-register="align"] { border-left-color: var(--cb-slate-mid); }
+.cb-voice[data-register="cog"]   { border-left-color: var(--cb-amber); }
+
+.cb-voice blockquote {
+  font-family: var(--ff-display);
+  font-size: .92rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--cb-slate);
+  margin-bottom: .45rem;
+}
+
+.cb-voice-meta {
+  font-family: var(--ff-mono);
+  font-size: .55rem;
+  letter-spacing: .06em;
+  color: var(--cb-slate-soft);
+  line-height: 1.6;
+}
+
+.cb-voice-meta strong {
+  color: var(--cb-slate);
+  display: block;
+  margin-bottom: 1px;
+}
+
+/* ══════════════════════════════════════
+   REFERENCE TABLES
+   ══════════════════════════════════════ */
+.cb-ref {
+  margin-bottom: 2rem;
+}
+
+.cb-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table.cb-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .82rem;
+}
+
+table.cb-table th {
+  font-family: var(--ff-mono);
+  font-size: .57rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cb-slate-soft);
+  padding: .5rem .75rem;
+  border-bottom: 1px solid var(--cb-slate);
+  text-align: left;
+  font-weight: 400;
+  background: var(--cb-ghost-warm);
+}
+
+table.cb-table td {
+  padding: .6rem .75rem;
+  border-bottom: .5px solid var(--cb-rule-lt);
+  vertical-align: top;
+  line-height: 1.55;
+  color: var(--cb-slate-mid);
+}
+
+table.cb-table tr:hover td { background: #fff; }
+table.cb-table tr:last-child td { border-bottom: none; }
+
+table.cb-table td:first-child {
+  font-family: var(--ff-display);
+  font-size: .88rem;
+  font-weight: 500;
+  color: var(--cb-slate);
+}
+
+.cb-status {
+  display: inline-block;
+  font-family: var(--ff-mono);
+  font-size: .52rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 2px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.s-resolved  { background: #F2E8E5; color: var(--cb-terra); }
+.s-contested { background: #F7EDD6; color: var(--cb-risk-mid); }
+.s-active    { background: #F7EDD6; color: var(--cb-risk-mid); }
+.s-unclear   { background: #ECEAE4; color: var(--cb-risk-neu); }
+.s-low       { background: #E8F0E9; color: var(--cb-sage); }
+.s-moderate  { background: #F7EDD6; color: var(--cb-risk-mid); }
+.s-high      { background: #F2E8E5; color: var(--cb-terra); }
+.s-extreme   { background: #F2E8E5; color: var(--cb-terra); border: .5px solid var(--cb-terra); }
+
+/* ══════════════════════════════════════
+   FOOTNOTES / SOURCES
+   ══════════════════════════════════════ */
+.cb-sources {
+  border-top: .5px solid var(--cb-rule);
+  padding-top: 1.25rem;
+  margin-top: 2rem;
+}
+
+.cb-sources-head {
+  font-family: var(--ff-mono);
+  font-size: .57rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--cb-slate-soft);
+  margin-bottom: .75rem;
+}
+
+.cb-source-list {
+  columns: 2;
+  column-gap: var(--col-gap);
+  font-family: var(--ff-mono);
+  font-size: .58rem;
+  color: var(--cb-slate-soft);
+  line-height: 1.7;
+  letter-spacing: .01em;
+}
+
+.cb-source-list li {
+  list-style: none;
+  padding-left: .8rem;
+  position: relative;
+  break-inside: avoid;
+  margin-bottom: .15rem;
+}
+
+.cb-source-list li::before {
+  content: var(--middot);
+  color: var(--cb-amber);
+  position: absolute;
+  left: 0;
+}
+
+.cb-source-list a {
+  color: var(--cb-slate-soft);
+  text-decoration: underline;
+  text-decoration-color: var(--cb-amber-lt);
+  text-underline-offset: 2px;
+  transition: color .12s, text-decoration-color .12s;
+}
+
+.cb-source-list a:hover {
+  color: var(--cb-amber);
+  text-decoration-color: var(--cb-amber);
+}
+
+/* ══════════════════════════════════════
+   COLOPHON
+   ══════════════════════════════════════ */
+.cb-colophon {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 2.5px solid var(--cb-slate);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+
+.cb-colophon-left {
+  font-family: var(--ff-mono);
+  font-size: .57rem;
+  letter-spacing: .07em;
+  color: var(--cb-slate-soft);
+  line-height: 1.8;
+}
+
+.cb-colophon-right {
+  text-align: right;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════ */
+@media (max-width: 640px) {
+  .cb-title { font-size: 1.85rem; }
+  .cb-masthead { grid-template-columns: 1fr; }
+  .cb-sig-block { text-align: left; }
+  .cb-lede { grid-template-columns: 1fr; }
+  .cb-pull { position: static; }
+  .cb-voices { columns: 1; }
+  .cb-source-list { columns: 1; }
+  .cb-colophon { flex-direction: column; align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
+</head>
+
+<body>
+<div class="cb-page">
+
+  <!-- ═══ MASTHEAD ═══ -->
+  <header class="cb-masthead">
+    <div>
+      <div class="cb-series-line">Digital Broadsides <span>·</span> Thinking Tools <span>No. 02</span></div>
+      <h1 class="cb-title">Before you invite<br><em>AI into the studio</em></h1>
+      <p class="cb-subtitle">A field guide to five ethical fault lines — IP, authorship, epistemic extraction,<br>environmental cost, and alignment</p>
+    </div>
+    <div class="cb-sig-block">
+      <a class="cb-sig" href="https://chamy.xyz" target="_blank" rel="noopener">CHAMY<span class="cb-dot">·</span>XYZ</a>
+      <div class="cb-issue-meta">
+        Dimitry Saïd Chamy<br>
+        CHAMY·XYZ<br>
+        July 2026
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ OPENING LEDE ═══ -->
+  <div class="cb-lede">
+    <div class="cb-lede-body">
+      <p class="cb-drop-cap">AI has entered the studio faster than most artists' understanding of it. Millions use it daily — to generate images, draft statements, prototype forms — without a clear picture of what is happening underneath or what they are authorizing in the process.</p>
+      <p>That gap creates real problems. It naturalizes a system built on unconsented extraction. It encourages misplaced trust in outputs that are confidently wrong. It makes invisible a labor chain that extends from low-wage annotators in the Global South to the power grids of rural communities that never voted on the buildout.</p>
+      <p>This is not an argument against use. It is a set of tools for use with open eyes. The five fault lines laid out here — drawn from current litigation, technical research, and activist testimony — are the minimum ethical terrain any practitioner should walk before inviting these systems into the work.</p>
+      <p>Each section identifies a common misread, names the actual structure, and offers a reframe for the studio or classroom. The decision flows that follow are not prescriptive. They are a mirror.</p>
+    </div>
+    <aside class="cb-pull">
+      <p class="cb-pull-quote">"I truly felt like someone had backed up a truck to my imagination and stolen everything I'd ever created."</p>
+      <p class="cb-pull-attr">David Baldacci · Senate Judiciary Committee · July 2025</p>
+    </aside>
+  </div>
+
+  <!-- ═══ FIVE FAULT LINES ═══ -->
+  <div class="cb-section-head">§ 1 — Five fault lines <span style="font-style:italic;font-family:var(--ff-display);text-transform:none;letter-spacing:0;font-size:.8rem;color:var(--cb-slate-soft);">tap any to expand</span></div>
+
+  <div class="cb-pressure-grid">
+
+    <div class="cb-pressure" data-risk="high" onclick="this.classList.toggle('open')">
+      <div class="cb-p-index">Fault line 01</div>
+      <div class="cb-p-name">IP &amp; Authorship</div>
+      <div class="cb-p-concepts">Concepts 2 · 8 · 14</div>
+      <div class="cb-p-risk-label">Active litigation</div>
+      <div class="cb-p-detail">
+        <span class="cb-misread">Common misread</span>
+        <p>"The model learned from my work the way a human student does — by seeing it and being inspired."</p>
+        <span class="cb-reframe">Reframe</span>
+        <p>Training is statistical ingestion at industrial scale — billions of images without consent, credit, or the ability to forget. Karla Ortiz: "industrial-level identity theft." Style is not copyrightable; the extraction mechanism isn't inspiration.</p>
+        <p>US Supreme Court declined to hear AI copyright case, March 2026. ~60 active lawsuits globally.</p>
+      </div>
+    </div>
+
+    <div class="cb-pressure" data-risk="high" onclick="this.classList.toggle('open')">
+      <div class="cb-p-index">Fault line 02</div>
+      <div class="cb-p-name">Epistemic &amp; Cognitive Extraction</div>
+      <div class="cb-p-concepts">Concepts 1 · 5 · 10</div>
+      <div class="cb-p-risk-label">Structurally underexamined</div>
+      <div class="cb-p-detail">
+        <span class="cb-misread">Common misread</span>
+        <p>"AI is a thinking partner — it understands what I mean and responds creatively."</p>
+        <span class="cb-reframe">Reframe</span>
+        <p>The model has no understanding, no intent, no inner life. What feels like dialogue is next-token prediction. The extraction runs one direction: human creative work compressed into weights that generate economic value for a few companies, returned to users as a product. Glissant's right to opacity applies: your creative process needn't be legible to a training pipeline.</p>
+      </div>
+    </div>
+
+    <div class="cb-pressure" data-risk="medium" onclick="this.classList.toggle('open')">
+      <div class="cb-p-index">Fault line 03</div>
+      <div class="cb-p-name">Hallucination as Feature</div>
+      <div class="cb-p-concepts">Concept 9</div>
+      <div class="cb-p-risk-label">Misframed as fixable</div>
+      <div class="cb-p-detail">
+        <span class="cb-misread">Common misread</span>
+        <p>"Hallucinations are glitches — future models will fix this. For now I just fact-check."</p>
+        <span class="cb-reframe">Reframe</span>
+        <p>Karpathy: "Hallucination is all LLMs do." The model is doing the same thing when it gets it right as when it gets it wrong. Fluent output is not evidence of accuracy. For artists working with history, attribution, or research, this is consequential.</p>
+      </div>
+    </div>
+
+    <div class="cb-pressure" data-risk="high" onclick="this.classList.toggle('open')">
+      <div class="cb-p-index">Fault line 04</div>
+      <div class="cb-p-name">Environmental Cost</div>
+      <div class="cb-p-concepts">Concept 12</div>
+      <div class="cb-p-risk-label">Accelerating, underreported</div>
+      <div class="cb-p-detail">
+        <span class="cb-misread">Common misread</span>
+        <p>"AI is a digital tool — using it has no physical footprint the way flying or printing does."</p>
+        <span class="cb-reframe">Reframe</span>
+        <p>Inference drives 80–90% of AI's energy use. 945 TWh projected by 2030 (IEA). Rebound effect: efficiency gains are outpaced by consumption growth. The query running now draws on power grids that may displace community water access. Teresa Roldán, Querétaro: "Water is what's needed for the people, not for these industries."</p>
+      </div>
+    </div>
+
+    <div class="cb-pressure" data-risk="active" onclick="this.classList.toggle('open')">
+      <div class="cb-p-index">Fault line 05</div>
+      <div class="cb-p-name">Alignment &amp; Value Capture</div>
+      <div class="cb-p-concepts">Concepts 13 · 15</div>
+      <div class="cb-p-risk-label">Whose values — unresolved</div>
+      <div class="cb-p-detail">
+        <span class="cb-misread">Common misread</span>
+        <p>"The model is neutral — it does what I ask. Any harm is in how I use it."</p>
+        <span class="cb-reframe">Reframe</span>
+        <p>RLHF encodes the value choices of a specific annotator pool — often low-wage workers in the Global South, filtered through the priorities of a small number of US tech companies. "Neutral" output is the product of contested, invisible labor. The model's confidence is trained in — it is not taste; it is reward-hacking.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="cb-pressure-note">Fault line color coding: <span style="color:var(--cb-risk-hi)">■</span> resolved against artists &nbsp;|&nbsp; <span style="color:var(--cb-risk-mid)">■</span> active / contested &nbsp;|&nbsp; <span style="color:var(--cb-amber)">■</span> unresolved by design</p>
+
+  <!-- ═══ DECISION FLOWS ═══ -->
+  <div class="cb-section-head">§ 2 — Decision flows</div>
+
+  <div class="cb-flows">
+
+    <div class="cb-flow">
+      <div class="cb-flow-header">
+        <span class="cb-flow-num">Flow I</span>
+        <span class="cb-flow-title">Is this use defensible on IP grounds?</span>
+      </div>
+      <div class="cb-flow-body">
+
+        <div class="cb-step">
+          <div class="cb-step-spine">
+            <div class="cb-step-node">1</div>
+            <div class="cb-step-connector"></div>
+          </div>
+          <div class="cb-step-content">
+            <div class="cb-step-q">Will you use a commercial AI model to generate images, text, or audio?</div>
+            <div class="cb-branch">
+              <span class="cb-branch-marker yes-marker">Yes</span>
+              <span>Proceed to step 2. Your output was produced by a model trained on work scraped without consent. That is a political fact regardless of current legal standing.</span>
+            </div>
+            <div class="cb-branch">
+              <span class="cb-branch-marker no-marker">No</span>
+              <span>Using only licensed, synthetic, or self-owned training data? <span class="cb-outcome out-proceed">Proceed — lower IP risk</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cb-step">
+          <div class="cb-step-spine">
+            <div class="cb-step-node">2</div>
+            <div class="cb-step-connector"></div>
+          </div>
+          <div class="cb-step-content">
+            <div class="cb-step-q">Will the output be presented, sold, or published as your creative work?</div>
+            <div class="cb-branch">
+              <span class="cb-branch-marker yes-marker">Yes</span>
+              <span>US law: AI-generated art is not copyrightable without human creative input. Document your process rigorously. <span class="cb-outcome out-caution">Caution — disclose &amp; document</span></span>
+            </div>
+            <div class="cb-branch">
+              <span class="cb-branch-marker no-marker">No</span>
+              <span>Tool use for process, research, or exploration. IP risk lower; ethical questions remain.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cb-step">
+          <div class="cb-step-spine">
+            <div class="cb-step-node">3</div>
+          </div>
+          <div class="cb-step-content">
+            <div class="cb-step-q">Does the output invoke a living artist's recognizable visual language?</div>
+            <div class="cb-branch">
+              <span class="cb-branch-marker yes-marker">Yes</span>
+              <span>Style is not legally protected — but the "industrial-level identity theft" framing holds as an ethics claim even when it fails in court. <span class="cb-outcome out-pause">Pause — reconsider</span></span>
+            </div>
+            <div class="cb-branch">
+              <span class="cb-branch-marker no-marker">No</span>
+              <span>Lower risk. Apply disclosure practices and continue.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="cb-flow">
+      <div class="cb-flow-header">
+        <span class="cb-flow-num">Flow II</span>
+        <span class="cb-flow-title">What epistemic and cognitive risks am I taking on?</span>
+      </div>
+      <div class="cb-flow-body">
+
+        <div class="cb-step">
+          <div class="cb-step-spine">
+            <div class="cb-step-node">A</div>
+            <div class="cb-step-connector"></div>
+          </div>
+          <div class="cb-step-content">
+            <div class="cb-step-q">Am I using AI output as research, citation, or factual reference?</div>
+            <div class="cb-branch">
+              <span class="cb-branch-marker yes-marker">Yes</span>
+              <span>Hallucination is structural, not incidental. The model produces plausible text — not verified facts. All factual claims require external verification. <span class="cb-outcome out-pause">Stop — verify independently</span></span>
+            </div>
+            <div class="cb-branch">
+              <span class="cb-branch-marker no-marker">No</span>
+              <span>Using for drafts, ideation, or structure? Proceed — but the model has no understanding of what you actually intend.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cb-step">
+          <div class="cb-step-spine">
+            <div class="cb-step-node">B</div>
+            <div class="cb-step-connector"></div>
+          </div>
+          <div class="cb-step-content">
+            <div class="cb-step-q">Am I sharing unfinished, sensitive, or signature creative material with the model?</div>
+            <div class="cb-branch">
+              <span class="cb-branch-marker yes-marker">Yes</span>
+              <span>Input may become training data. Glissant's right to opacity: your creative interiority doesn't owe itself to a pipeline. Consider what you authorize. <span class="cb-outcome out-caution">Consider — what are you giving away?</span></span>
+            </div>
+            <div class="cb-branch">
+              <span class="cb-branch-marker no-marker">No</span>
+              <span>Lower cognitive exposure. Continue.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cb-step">
+          <div class="cb-step-spine">
+            <div class="cb-step-node">C</div>
+          </div>
+          <div class="cb-step-content">
+            <div class="cb-step-q">Am I relying on the model to make curatorial, aesthetic, or ethical judgments?</div>
+            <div class="cb-branch">
+              <span class="cb-branch-marker yes-marker">Yes</span>
+              <span>The model's aesthetic confidence is trained in, not intrinsic. RLHF encodes the values of a specific annotator pool. Its confidence is reward-hacking. <span class="cb-outcome out-pause">Pause — whose values?</span></span>
+            </div>
+            <div class="cb-branch">
+              <span class="cb-branch-marker no-marker">No</span>
+              <span>Keeping judgment in your hands. Continue.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══ VOICES ═══ -->
+  <div class="cb-section-head">§ 3 — Voices from the field</div>
+
+  <div class="cb-voices">
+
+    <div class="cb-voice" data-register="ip">
+      <blockquote>"Someone has taken everything that you've worked for and allowed someone else to do whatever they want with it for profit."</blockquote>
+      <div class="cb-voice-meta"><strong>Karla Ortiz</strong>Illustrator · plaintiff, Stability AI lawsuit · Fox News interview</div>
+    </div>
+
+    <div class="cb-voice" data-register="hall">
+      <blockquote>"Hallucination is all LLMs do — to get reliability from a system built on LLMs, we need to add additional layers of analysis and methods."</blockquote>
+      <div class="cb-voice-meta"><strong>Andrej Karpathy</strong>Former OpenAI research director · X/Twitter</div>
+    </div>
+
+    <div class="cb-voice" data-register="env">
+      <blockquote>"Water is what's needed for the people, not for these industries."</blockquote>
+      <div class="cb-voice-meta"><strong>Teresa Roldán</strong>Environmental activist · Querétaro, Mexico · opposing data center expansion · Mongabay, Nov 2025</div>
+    </div>
+
+    <div class="cb-voice" data-register="ip">
+      <blockquote>"I found that almost the entire body of my work… was taken without our consent, credit or compensation to train these for-profit technologies. Once trained, our work could not be forgotten."</blockquote>
+      <div class="cb-voice-meta"><strong>Karla Ortiz</strong>Senate Judiciary Committee written testimony · July 2023</div>
+    </div>
+
+    <div class="cb-voice" data-register="hall">
+      <blockquote>"Even the term hallucinations is subtly misleading. It suggests that the bad behavior is an aberration, a bug, when it's actually a feature of the probabilistic pattern-matching mechanics of neural networks."</blockquote>
+      <div class="cb-voice-meta"><strong>Nicolette</strong>Reader note on <em>Empire of AI</em> · Goodreads</div>
+    </div>
+
+    <div class="cb-voice" data-register="env">
+      <blockquote>"More efficient and affordable AI means more consumption of AI, making the overall footprint far bigger than what we save through efficiency gains."</blockquote>
+      <div class="cb-voice-meta"><strong>Prof. Kaveh Madani</strong>2026 Stockholm Water Prize laureate · UN University INWEH report · June 2026</div>
+    </div>
+
+    <div class="cb-voice" data-register="cog">
+      <blockquote>"There is no 'general knowledge' — no source of information that humans are given as a guidebook and told to bootstrap up, which was not carried to us by the chain of history which allows us to create in this moment."</blockquote>
+      <div class="cb-voice-meta"><strong>Anonymous</strong>AI Governance Lead Substack · thread on Disney/Universal v. Midjourney · 2025</div>
+    </div>
+
+    <div class="cb-voice" data-register="align">
+      <blockquote>"What if the models are just telling us what we want to hear?"</blockquote>
+      <div class="cb-voice-meta"><strong>J. Who</strong>Substack · <em>2nd Order Thinkers</em> · on 2025 Anthropic alignment studies</div>
+    </div>
+
+  </div>
+
+  <!-- ═══ REFERENCE TABLES ═══ -->
+  <div class="cb-section-head">§ 4 — Reference: legal &amp; ethical status, 2026</div>
+
+  <div class="cb-ref">
+    <div class="cb-table-wrap">
+      <table class="cb-table">
+        <thead>
+          <tr>
+            <th>Question</th>
+            <th>Current status</th>
+            <th>Standing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Is AI-generated art copyrightable?</td>
+            <td>No. US Supreme Court declined to hear case, March 2026. Human creative input required for protection.</td>
+            <td><span class="cb-status s-resolved">Resolved — against artists</span></td>
+          </tr>
+          <tr>
+            <td>Was training on scraped data legal?</td>
+            <td>Unresolved. ~60+ active lawsuits globally. Fair use defense contested. Several settlements reached.</td>
+            <td><span class="cb-status s-active">Active litigation</span></td>
+          </tr>
+          <tr>
+            <td>Can you prompt "in the style of" a living artist?</td>
+            <td>Technically permitted; legally contested; ethically disputed. Style is not copyrightable — the extraction mechanism is a separate question.</td>
+            <td><span class="cb-status s-contested">Contested</span></td>
+          </tr>
+          <tr>
+            <td>Does "open source" AI mean inspectable training data?</td>
+            <td>No. Open weights ≠ open source. Training data and code rarely released. Most "open" models carry commercial restrictions.</td>
+            <td><span class="cb-status s-unclear">Widely misunderstood</span></td>
+          </tr>
+          <tr>
+            <td>Is my input to a commercial AI model private?</td>
+            <td>Not guaranteed. Terms vary by provider. Some use inputs for training. Check current ToS before sharing sensitive work.</td>
+            <td><span class="cb-status s-contested">Verify per platform</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="cb-section-head">§ 5 — Reference: environmental cost by use type</div>
+
+  <div class="cb-ref">
+    <div class="cb-table-wrap">
+      <table class="cb-table">
+        <thead>
+          <tr>
+            <th>Use type</th>
+            <th>Energy driver</th>
+            <th>Relative footprint</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Text prompt / chat</td>
+            <td>Inference</td>
+            <td><span class="cb-status s-low">Low per query</span></td>
+            <td>80–90% of total AI energy is inference — scale is the issue, not the individual query</td>
+          </tr>
+          <tr>
+            <td>Image generation</td>
+            <td>Inference — diffusion</td>
+            <td><span class="cb-status s-moderate">Moderate</span></td>
+            <td>Diffusion models are computationally heavier per output than text generation</td>
+          </tr>
+          <tr>
+            <td>Video / audio generation</td>
+            <td>Inference — heavy</td>
+            <td><span class="cb-status s-high">High per output</span></td>
+            <td>Long-form generation scales energy use significantly</td>
+          </tr>
+          <tr>
+            <td>Fine-tuning on custom data</td>
+            <td>Training — partial</td>
+            <td><span class="cb-status s-high">High</span></td>
+            <td>Even "small" fine-tuning runs require significant GPU time and energy</td>
+          </tr>
+          <tr>
+            <td>Frontier model training (full)</td>
+            <td>Training — full</td>
+            <td><span class="cb-status s-extreme">Extreme</span></td>
+            <td>GPT-3 ≈ 1,287 MWh to train; frontier models substantially more</td>
+          </tr>
+          <tr>
+            <td>Local / small model inference</td>
+            <td>Device compute</td>
+            <td><span class="cb-status s-low">Lower</span></td>
+            <td>Shifts burden to device hardware; reduces grid demand</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══ ENERGY CHART ═══ -->
+  <div class="cb-section-head">§ 6 — Energy cost by AI use type</div>
+
+  <div class="cb-chart-wrap">
+    <p class="cb-chart-subtitle">Approximate watt-hours (Wh) per single operation — logarithmic scale. Operational (per use) vs. training costs. Sources: IEA <em>Energy and AI</em> 2025; Presenc AI 2026; aimultiple.com 2026.</p>
+    <div id="cb-energy-chart" aria-label="Horizontal logarithmic bar chart of AI energy use by type"></div>
+    <p class="cb-chart-note">Per-query figures are approximate mid-range estimates. Video: CogVideoX 5s high-quality output ~944 Wh (aimultiple). Reasoning / agentic: IEA — "hundreds to thousands of times more energy per query than simple text generation." Fine-tuning: rough order-of-magnitude estimate. GPT-3 training: ~1,287 MWh (OpenAI / Presenc AI). GPT-4 training: ~50 GWh (estimated). Google Search shown as baseline reference only.</p>
+  </div>
+
+  <style>
+    .cb-chart-wrap {
+      margin-bottom: 2.5rem;
+      background: #fff;
+      border: .5px solid var(--cb-rule);
+      padding: 1.25rem 1.25rem 1rem;
+    }
+    .cb-chart-subtitle {
+      font-family: var(--ff-mono);
+      font-size: .58rem;
+      color: var(--cb-slate-soft);
+      letter-spacing: .03em;
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+    .cb-chart-note {
+      font-family: var(--ff-mono);
+      font-size: .55rem;
+      color: var(--cb-slate-soft);
+      letter-spacing: .02em;
+      line-height: 1.7;
+      margin-top: .9rem;
+      border-top: .5px solid var(--cb-rule-lt);
+      padding-top: .65rem;
+    }
+    #cb-energy-chart svg { display: block; width: 100%; overflow: visible; }
+  </style>
+
+  <script>
+  (function() {
+    const data = [
+      { label: "Google Search",             sub: "baseline reference",               wh: 0.3,      cat: "ref"   },
+      { label: "Text / chat query",          sub: "simple LLM prompt",                wh: 1,        cat: "low"   },
+      { label: "Image generation",           sub: "diffusion model, single image",    wh: 10,       cat: "med"   },
+      { label: "Reasoning / agentic task",   sub: "IEA: 100–1,000× text generation",  wh: 200,      cat: "med"   },
+      { label: "Video generation",           sub: "5-second high-quality output",     wh: 944,      cat: "high"  },
+      { label: "Fine-tuning",                sub: "custom dataset, partial training", wh: 1e6,      cat: "train" },
+      { label: "Full training (GPT-3 scale)",sub: "~1,287 MWh",                      wh: 1.287e9,  cat: "train" },
+      { label: "Full training (GPT-4 scale)",sub: "~50 GWh (estimated)",             wh: 5e10,     cat: "train" },
+    ];
+
+    const colors   = { ref:"#9A9A94", low:"#4A6647", med:"#8C631C", high:"#8B3A24", train:"#1C1C1A" };
+    const bgColors = { ref:"#F0EEE9", low:"#E8F0E9", med:"#F7EDD6", high:"#F2E8E5", train:"#ECEAE4" };
+
+    function fmtWh(wh) {
+      if (wh < 1)    return wh.toFixed(1) + " Wh";
+      if (wh < 1000) return (Math.round(wh * 10) / 10) + " Wh";
+      if (wh < 1e6)  return (wh / 1000).toFixed(0) + " kWh";
+      if (wh < 1e9)  return (wh / 1e6).toFixed(0) + " MWh";
+      return (wh / 1e9).toFixed(0) + " GWh";
+    }
+
+    const logMin = -1, logMax = 11, logRange = 12;
+    const labelW = 195, chartW = 430, padT = 28, padB = 28;
+    const rowH = 46, totalW = labelW + chartW + 90, totalH = padT + data.length * rowH + padB;
+
+    function toX(wh) { return ((Math.log10(wh) - logMin) / logRange) * chartW; }
+
+    const ticks = [
+      {log:-1,lbl:"0.1 Wh"},{log:0,lbl:"1 Wh"},{log:1,lbl:"10 Wh"},
+      {log:2,lbl:"100 Wh"},{log:3,lbl:"1 kWh"},{log:6,lbl:"1 MWh"},
+      {log:9,lbl:"1 GWh"},{log:11,lbl:"100 GWh"}
+    ];
+
+    let s = `<svg viewBox="0 0 ${totalW} ${totalH}" xmlns="http://www.w3.org/2000/svg">`;
+
+    // grid + axis labels
+    ticks.forEach(t => {
+      const x = labelW + ((t.log - logMin) / logRange) * chartW;
+      s += `<line x1="${x}" y1="${padT-5}" x2="${x}" y2="${padT + data.length*rowH}"
+              stroke="${t.log===0?'#C8C4BC':'#ECEAE4'}" stroke-width="${t.log===0?1:.5}"/>`;
+      s += `<text x="${x}" y="${padT-9}" text-anchor="middle"
+              font-family="'Space Mono',monospace" fill="#9A9A94" font-size="7.5">${t.lbl}</text>`;
+    });
+
+    // baseline
+    const xBase = labelW;
+    s += `<line x1="${xBase}" y1="${padT}" x2="${xBase}" y2="${padT+data.length*rowH}"
+            stroke="#3A3A36" stroke-width="1"/>`;
+
+    // category divider after row 4 (index 4, before fine-tuning)
+    const divY = padT + 5 * rowH;
+    s += `<line x1="${labelW-12}" y1="${divY}" x2="${labelW+chartW+70}" y2="${divY}"
+            stroke="#D6D0C4" stroke-width=".75" stroke-dasharray="4,3"/>`;
+    s += `<text x="${labelW-12}" y="${padT + 2*rowH - 4}" text-anchor="start"
+            font-family="'Space Mono',monospace" fill="#C9C6BE" font-size="6.5" letter-spacing=".1em">PER USE</text>`;
+    s += `<text x="${labelW-12}" y="${divY + 14}" text-anchor="start"
+            font-family="'Space Mono',monospace" fill="#C9C6BE" font-size="6.5" letter-spacing=".1em">TRAINING</text>`;
+
+    // rows
+    data.forEach((d, i) => {
+      const y = padT + i * rowH;
+      const barH = 19, barY = y + (rowH - barH) / 2;
+      const barX = labelW;
+      const barW = Math.max(2, toX(d.wh));
+      const valX = labelW + barW + 6;
+
+      if (i % 2 === 0) s += `<rect x="0" y="${y}" width="${totalW}" height="${rowH}" fill="#FAFAF8"/>`;
+
+      // label + sub
+      s += `<text x="${labelW-10}" y="${barY+8}" text-anchor="end"
+              font-family="'Space Mono',monospace" fill="#1C1C1A" font-size="9" font-weight="700"
+              letter-spacing="-.01em">${d.label}</text>`;
+      s += `<text x="${labelW-10}" y="${barY+19}" text-anchor="end"
+              font-family="'Space Mono',monospace" fill="#9A9A94" font-size="7"
+              font-style="italic">${d.sub}</text>`;
+
+      // bar bg track
+      s += `<rect x="${barX}" y="${barY}" width="${chartW}" height="${barH}"
+              fill="${bgColors[d.cat]}" rx="1.5"/>`;
+      // bar fill
+      s += `<rect x="${barX}" y="${barY}" width="${barW}" height="${barH}"
+              fill="${colors[d.cat]}" rx="1.5" opacity=".82"/>`;
+      // value
+      s += `<text x="${valX}" y="${barY+13}" text-anchor="start"
+              font-family="'Space Mono',monospace" fill="${colors[d.cat]}"
+              font-size="9" font-weight="700">${fmtWh(d.wh)}</text>`;
+    });
+
+    // sig
+    s += `<text x="${totalW-4}" y="${totalH-6}" text-anchor="end"
+            font-family="'Space Mono',monospace" fill="#C9922A" font-size="7"
+            letter-spacing=".12em">CHAMY·XYZ</text>`;
+
+    s += `</svg>`;
+    document.getElementById('cb-energy-chart').innerHTML = s;
+  })();
+  </script>
+
+  <!-- ═══ COUNTERPOINT ═══ -->
+  <div class="cb-section-head">§ 7 — AI doesn't have to be this way</div>
+
+  <style>
+    .cb-counter-lede{font-size:1rem;line-height:1.8;color:var(--cb-slate);margin-bottom:1.75rem;max-width:560px;}
+    .cb-counter-lede p+p{margin-top:.8rem;}
+    .cb-map-wrap{margin-bottom:.6rem;background:#fff;border:.5px solid var(--cb-rule);padding:1.25rem 1.25rem .75rem;}
+    .cb-map-caption{font-family:var(--ff-mono);font-size:.55rem;color:var(--cb-slate-soft);letter-spacing:.03em;line-height:1.65;margin-top:.65rem;border-top:.5px solid var(--cb-rule-lt);padding-top:.5rem;}
+    .cb-map-caption a{color:var(--cb-slate-soft);text-decoration:underline;text-decoration-color:var(--cb-amber-lt);text-underline-offset:2px;}
+    .cb-map-caption a:hover{color:var(--cb-amber);}
+    .cb-compare-wrap{margin-bottom:2rem;}
+    .cb-compare-table{width:100%;border-collapse:collapse;font-size:.82rem;table-layout:fixed;}
+    .cb-compare-table th{font-family:var(--ff-mono);font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cb-slate-soft);padding:.5rem .75rem;border-bottom:1px solid var(--cb-slate);text-align:left;font-weight:400;}
+    .cb-compare-table th.alt-head{color:var(--cb-amber-dim);border-bottom-color:var(--cb-amber);}
+    .cb-compare-table td{padding:.65rem .75rem;border-bottom:.5px solid var(--cb-rule-lt);vertical-align:top;line-height:1.55;color:var(--cb-slate-mid);}
+    .cb-compare-table tr:hover td{background:#fff;}
+    .cb-compare-table tr:last-child td{border-bottom:none;}
+    .cb-compare-table td:first-child{font-family:var(--ff-display);font-size:.88rem;font-weight:500;color:var(--cb-slate);width:16%;}
+    .cb-compare-table td:nth-child(2){width:40%;background:var(--cb-ghost-warm);}
+    .cb-compare-table td:nth-child(3){width:44%;border-left:2px solid var(--cb-amber-lt);}
+    .cb-compare-table tr:hover td:nth-child(2){background:#F5F2EC;}
+    .cb-komo-note{display:inline-block;font-family:var(--ff-mono);font-size:.52rem;letter-spacing:.06em;color:var(--cb-amber-dim);margin-top:.25rem;}
+  </style>
+
+  <div class="cb-counter-lede">
+    <p>The fault lines in the previous sections — extraction, hallucination, alignment failure, environmental cost — are real. They are also not permanent features of the landscape. They are the downstream consequences of specific design choices made by a small number of companies optimizing for a specific set of incentives.</p>
+    <p>Alex Komoroske, who spent 13 years inside Google and led corporate strategy at Stripe before co-founding Common Tools, makes the case plainly: the version of AI we have is not the only version that could exist. The same-origin policy that gave us data silos was a 1990s Netscape browser security decision made for reasons that had nothing to do with monopoly. It accidentally produced Facebook, Google, and every aggregator since. AI now stands at an equivalent fork. The path taken will not be chosen by default. It will be chosen by whoever is paying attention.</p>
+  </div>
+
+  <div class="cb-map-wrap">
+    <svg viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;" role="img" aria-label="Concept map of six Komoroske ideas surrounding the central claim: AI doesn't have to be this way">
+      <title>Six concepts from Komoroske and Common Tools</title>
+
+      <!-- connector lines (drawn first, nodes cover them) -->
+      <line x1="340" y1="170" x2="340" y2="95"  stroke="#C9922A" stroke-width="0.75" stroke-dasharray="4,3" opacity="0.45"/>
+      <line x1="390" y1="185" x2="453" y2="160" stroke="#C9922A" stroke-width="0.75" stroke-dasharray="4,3" opacity="0.45"/>
+      <line x1="390" y1="215" x2="453" y2="240" stroke="#C9922A" stroke-width="0.75" stroke-dasharray="4,3" opacity="0.45"/>
+      <line x1="340" y1="230" x2="340" y2="305" stroke="#C9922A" stroke-width="0.75" stroke-dasharray="4,3" opacity="0.45"/>
+      <line x1="290" y1="215" x2="227" y2="240" stroke="#C9922A" stroke-width="0.75" stroke-dasharray="4,3" opacity="0.45"/>
+      <line x1="290" y1="185" x2="227" y2="160" stroke="#C9922A" stroke-width="0.75" stroke-dasharray="4,3" opacity="0.45"/>
+
+      <!-- center node -->
+      <rect x="237" y="168" width="206" height="64" rx="3" fill="#1C1C1A"/>
+      <text x="340" y="187" text-anchor="middle" font-family="'Space Mono',monospace" font-size="7.5" fill="#C9922A" letter-spacing="0.1em">KOMOROSKE · COMMON TOOLS · 2026</text>
+      <text x="340" y="205" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="16" font-weight="400" fill="#F7F5F0">AI doesn't have to</text>
+      <text x="340" y="223" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="16" font-style="italic" font-weight="300" fill="#C9922A">be this way</text>
+
+      <!-- node 1 top: Historical contingency -->
+      <rect x="262" y="42" width="156" height="54" rx="3" fill="#EDE9E0" stroke="#3A3A36" stroke-width="0.5"/>
+      <text x="340" y="62"  text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="13" font-weight="500" fill="#1C1C1A">Historical contingency</text>
+      <text x="340" y="79"  text-anchor="middle" font-family="'Space Mono',monospace" font-size="7" fill="#6B6B65">not inevitable — designed</text>
+
+      <!-- node 2 top-right: Context ownership -->
+      <rect x="380" y="108" width="146" height="54" rx="3" fill="#EDE9E0" stroke="#3A3A36" stroke-width="0.5"/>
+      <text x="453" y="128" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="13" font-weight="500" fill="#1C1C1A">Context ownership</text>
+      <text x="453" y="145" text-anchor="middle" font-family="'Space Mono',monospace" font-size="7" fill="#6B6B65">your data stays yours</text>
+
+      <!-- node 3 bottom-right: Confidential compute -->
+      <rect x="380" y="238" width="146" height="54" rx="3" fill="#EDE9E0" stroke="#3A3A36" stroke-width="0.5"/>
+      <text x="453" y="258" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="13" font-weight="500" fill="#1C1C1A">Confidential compute</text>
+      <text x="453" y="275" text-anchor="middle" font-family="'Space Mono',monospace" font-size="7" fill="#6B6B65">power without exposure</text>
+
+      <!-- node 4 bottom: Intrinsic personalization -->
+      <rect x="262" y="302" width="156" height="54" rx="3" fill="#EDE9E0" stroke="#3A3A36" stroke-width="0.5"/>
+      <text x="340" y="322" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="13" font-weight="500" fill="#1C1C1A">Intrinsic personalization</text>
+      <text x="340" y="339" text-anchor="middle" font-family="'Space Mono',monospace" font-size="7" fill="#6B6B65">aligned to you, not platform</text>
+
+      <!-- node 5 bottom-left: Situated software -->
+      <rect x="154" y="238" width="146" height="54" rx="3" fill="#EDE9E0" stroke="#3A3A36" stroke-width="0.5"/>
+      <text x="227" y="258" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="13" font-weight="500" fill="#1C1C1A">Situated software</text>
+      <text x="227" y="275" text-anchor="middle" font-family="'Space Mono',monospace" font-size="7" fill="#6B6B65">assembles, then disappears</text>
+
+      <!-- node 6 top-left: Tyranny of Marl -->
+      <rect x="154" y="108" width="146" height="54" rx="3" fill="#EDE9E0" stroke="#3A3A36" stroke-width="0.5"/>
+      <text x="227" y="128" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="13" font-weight="500" fill="#1C1C1A">Tyranny of Marl</text>
+      <text x="227" y="145" text-anchor="middle" font-family="'Space Mono',monospace" font-size="7" fill="#6B6B65">design for depth, not scale</text>
+
+      <!-- amber sig -->
+      <text x="668" y="394" text-anchor="end" font-family="'Space Mono',monospace" font-size="7" fill="#C9922A" letter-spacing="0.1em">CHAMY·XYZ</text>
+    </svg>
+    <p class="cb-map-caption">Six concepts from Alex Komoroske (Common Tools) and Ivan Vendrov — reframing the current AI paradigm as a set of design choices, not technical inevitabilities. Source: <a href="https://michaelgarfield.substack.com/p/h-31" target="_blank" rel="noopener">Humans on the Loop, ep. H-31</a>, Michael Garfield, Feb 2026 · <a href="https://www.komoroske.com/" target="_blank" rel="noopener">komoroske.com</a> · <a href="https://nothinghuman.substack.com/p/the-tyranny-of-the-marginal-user" target="_blank" rel="noopener">Vendrov, "Tyranny of the Marginal User"</a></p>
+  </div>
+
+  <div class="cb-section-head" style="margin-top:1.75rem;">Current paradigm vs. the alternative — for artists</div>
+
+  <div class="cb-compare-wrap">
+    <div class="cb-table-wrap">
+      <table class="cb-compare-table">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Current paradigm</th>
+            <th class="alt-head">Komoroske / Common Tools alternative</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Designed for</td>
+            <td>The marginal user — lowest-agency, zero-patience, one working thumb. All design flows from keeping Marl from leaving.</td>
+            <td>Depth users at their most intentional. Your 1,000 true fans, not a billion disengaged ones.<span class="cb-komo-note">Vendrov · Kelly</span></td>
+          </tr>
+          <tr>
+            <td>Context &amp; memory</td>
+            <td>Platform accumulates your creative history, references, taste, and patterns. You stay because your data is already there.</td>
+            <td>You own your context. Tools read it, use it, and leave it with you. The SaaS lock-in is the business model, not a technical necessity.<span class="cb-komo-note">Komoroske, Bits and Bobs #12</span></td>
+          </tr>
+          <tr>
+            <td>Personalization</td>
+            <td>Extrinsic: the model optimizes your behavior toward platform engagement goals. Its aesthetic confidence is trained-in reward-hacking.</td>
+            <td>Intrinsic: tools align to your goals — helping you become the maker you want to be, not the user the platform needs you to be.<span class="cb-komo-note">Every.to interview, July 2025</span></td>
+          </tr>
+          <tr>
+            <td>Friction</td>
+            <td>Removed wherever possible. Frictionless = more engagement. The pause between impulse and action is a liability.</td>
+            <td>Designed intentionally. Some friction is protective — it's where judgment, craft, consent, and deliberation live. Not all friction is waste.<span class="cb-komo-note">Scanlon · Krishnan · Komoroske</span></td>
+          </tr>
+          <tr>
+            <td>Software model</td>
+            <td>Sticky, persistent, engagement-maximizing apps. You accumulate dependencies. The software stays; you adjust to it.</td>
+            <td>Ephemeral, situated software. Assembles around you for a specific context, task, or community — then disappears. No lock-in.<span class="cb-komo-note">Shirky, "Situated Software," 2004</span></td>
+          </tr>
+          <tr>
+            <td>Data infrastructure</td>
+            <td>SaaS: rent access to your own data in perpetuity. Centralized servers hold your creative archive. Terms of service determine access.</td>
+            <td>Confidential compute: encrypted, verifiable cloud processing. First time in history you can confirm what code is running on your data without running it yourself.<span class="cb-komo-note">Komoroske, Bits and Bobs #12</span></td>
+          </tr>
+          <tr>
+            <td>Business model</td>
+            <td>Free + engagement → data extraction → ad targeting. Your attention and creative output are the product.</td>
+            <td>User-paid or prosocial. Intention-aligned rather than engagement-maximizing. The model makes money when you do, not when you're captured.<span class="cb-komo-note">Common Tools, PBC structure</span></td>
+          </tr>
+          <tr>
+            <td>For artists specifically</td>
+            <td>Style mined without consent. Training data extracted at industrial scale. Outputs uncopyrightable. Your aesthetic becomes a weight in someone else's model.</td>
+            <td>Context portable. Aesthetic agency preserved. Tools that serve the work rather than extracting it. The right to opacity — your process need not be legible to a pipeline.<span class="cb-komo-note">Glissant · Komoroske · Common Tools</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══ STUDIO PRACTICE ═══ -->
+  <div class="cb-section-head">§ 8 — Studio practice: two bridges</div>
+
+  <style>
+    .cb-practice-lede{font-size:1rem;line-height:1.8;color:var(--cb-slate);margin-bottom:2rem;max-width:600px;}
+    .cb-practice-lede p+p{margin-top:.8rem;}
+    .cb-case{background:#fff;border:.5px solid var(--cb-rule);margin-bottom:1.75rem;}
+    .cb-case-head{background:var(--cb-slate);color:var(--cb-ghost);padding:.85rem 1.25rem;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.5rem;}
+    .cb-case-name{font-family:var(--ff-display);font-size:1.15rem;font-weight:500;}
+    .cb-case-tag{font-family:var(--ff-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cb-amber);}
+    .cb-case-body{padding:1.25rem;}
+    .cb-case-frame{font-family:var(--ff-display);font-style:italic;font-weight:300;font-size:1rem;color:var(--cb-slate-mid);line-height:1.6;border-left:2px solid var(--cb-amber);padding-left:1rem;margin-bottom:1rem;}
+    .cb-case-body p{font-size:.9rem;line-height:1.7;color:var(--cb-slate-mid);margin-bottom:.75rem;}
+    .cb-case-body p:last-child{margin-bottom:0;}
+    .cb-case-label{font-family:var(--ff-mono);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cb-amber-dim);display:block;margin-bottom:.3rem;margin-top:1rem;}
+    .cb-case-label:first-child{margin-top:0;}
+    .cb-flaw-def{background:var(--cb-ghost-warm);border:.5px solid var(--cb-rule);padding:.85rem 1rem;margin:1rem 0;}
+    .cb-flaw-def strong{font-family:var(--ff-display);font-style:italic;font-size:.95rem;color:var(--cb-slate);display:block;margin-bottom:.3rem;}
+    .cb-flaw-def span{font-size:.85rem;color:var(--cb-slate-mid);line-height:1.6;}
+    .cb-tool-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:.5rem;}
+    .cb-tool-chip{font-family:var(--ff-mono);font-size:.55rem;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:3px;background:var(--cb-ghost-warm);color:var(--cb-slate-mid);border:.5px solid var(--cb-rule);}
+    .cb-method{margin:2rem 0;}
+    .cb-method-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;}
+    .cb-method-step{background:#fff;border:.5px solid var(--cb-rule);border-top:2.5px solid var(--cb-amber);padding:.9rem 1rem;}
+    .cb-method-num{font-family:var(--ff-mono);font-size:.55rem;color:var(--cb-amber-dim);letter-spacing:.08em;margin-bottom:.35rem;}
+    .cb-method-title{font-family:var(--ff-display);font-size:.98rem;font-weight:500;color:var(--cb-slate);margin-bottom:.35rem;line-height:1.3;}
+    .cb-method-body{font-size:.8rem;color:var(--cb-slate-mid);line-height:1.55;}
+  </style>
+
+  <div class="cb-practice-lede">
+    <p>The fault lines and the counterpoint above are structural — they describe what the medium does at scale, regardless of who is using it. But the medium is also being used, right now, by specific people making specific choices. Two examples from current practice, chosen because they name their tools, disclose their process, and hold their intent in view the entire time.</p>
+    <p>Both treat AI as a bridge rather than a voice. Neither treats it as a shortcut around craft. The difference between generation-for-extraction and generation-for-thought is not in the tool — it's in what the maker was already carrying before they opened it.</p>
+  </div>
+
+  <div class="cb-case">
+    <div class="cb-case-head">
+      <span class="cb-case-name">Abi Awomosu</span>
+      <span class="cb-case-tag">Writing · voice · access</span>
+    </div>
+    <div class="cb-case-body">
+      <p class="cb-case-frame">"AI is not a tool. It's a medium." — something you're already swimming inside, whether or not you ever open a chatbot.</p>
+
+      <span class="cb-case-label">The argument</span>
+      <p>Awomosu's June 2026 essay "Writing Was Never a Test of Who Could Think" rejects the binary the discourse keeps offering — use it or refuse it — as a false choice generated by tool-thinking. A medium can't be put down. The real question is how you move through something that is already moving you.</p>
+
+      <span class="cb-case-label">Who the bridge is for</span>
+      <p>Her claim is specifically about access: writers who had the yin all along — the thing to say, the lived difference, the interior — but lacked the yang: time, training, a scribe, a bridge into the "straight line" of inscribed, linear writing that colonial and institutional power crowned as the only legitimate form of thought. For the web-thinker, the oral tradition-holder, the sideways mind, AI can be the bridge into legible form without demanding they first convert themselves into it. Not the voice. The bridge.</p>
+
+      <span class="cb-case-label">Flaw-speak</span>
+      <div class="cb-flaw-def">
+        <strong>Flaw-speak, n.</strong>
+        <span>The deliberate degrading. The em-dash deleted, the typo inserted, the voice filed down to seem less capable than it is — writing worse than you normally would in order to avoid being accused of writing too well. The first "-speak" in the internet's history that runs backward: every prior form (txt-speak, SEO-speak, algo-speak) stretched to be more legible to whatever controlled access. Flaw-speak is the only one built on shrinking yourself.</span>
+      </div>
+
+      <span class="cb-case-label">Practice</span>
+      <p>Disclose AI's involvement upfront, without apology. Develop the ear before the mouth — the medium's dopamine architecture pushes toward constant generation; the discipline is receptivity first. Write toward lived difference rather than the flattened center RLHF trains all models toward. Refuse flaw-speak — do not perform incompetence to survive detection culture.</p>
+    </div>
+  </div>
+
+  <div class="cb-case">
+    <div class="cb-case-head">
+      <span class="cb-case-name">Dimitry Saïd Chamy</span>
+      <span class="cb-case-tag">Code · installation · return</span>
+    </div>
+    <div class="cb-case-body">
+      <p class="cb-case-frame">A practice doesn't die. It goes dormant. The bridge back in isn't always a new skill — sometimes it's an old one, resuscitated.</p>
+
+      <span class="cb-case-label">The throughline</span>
+      <p>Coding began as a teenager and continued through an MFA — HTML front-end work, Macromedia Director, Flash and ActionScript, visual toys, laptop performances. It became a living: design, branding, client websites, which pulled the practice toward databases, taxonomies, and information architecture — a thread that still runs through the work as artist, educator, and cultural producer, including a continued commitment to the IndieWeb, the open, decentralized web from before platform capitalism closed it in, now being reclaimed by a new generation reacting to the same extractive forces named throughout this broadside.</p>
+      <p>Then the practice went dormant for over a decade. Not abandoned — just unreachable, the fluency gone soft, the syntax rusted.</p>
+
+      <span class="cb-case-label">The Unreading Room</span>
+      <p>An app collecting literary quotes — thinkers, writers, activists, theoreticians — organized around a single throughline: expression as freedom. Ideas that build the capacity to think independently and agentically. Pro-library, pro-literature, pro-free-speech, anti-censorship, anti-thought-control. The interface is deliberately simple: one screen, one randomized quote, always sourced, with a direct link to the author's page on Bookshop.org so readers can support the author and buy the book. No algorithm optimizing for engagement. No infinite scroll. One idea at a time, then the choice to go deeper or move on.</p>
+
+      <span class="cb-case-label">The bridge back</span>
+      <p>Initial build in ChatGPT — this was before working with Claude. Since then, the code has been substantially improved, with a better version in progress and an independent database being developed to move off dependency on any single platform's data structure. Vibe coding didn't teach a new practice; it reopened an old one, letting fifteen years of dormant fluency and a decade of information-architecture instinct meet a bridge that could hold the syntax while the underlying judgment — what the piece needed to say, how it needed to feel — stayed entirely the maker's own.</p>
+
+      <span class="cb-case-label">Where it's going: AR</span>
+      <p>The next phase projects the quotes into augmented reality — externalized into the physical world rather than contained on a screen. The intent is to make the literature live in the world, not just live in an app: readers encounter a quote in AR wherever they choose to place it, capture it, share it, and — the actual goal beneath the interaction — read more and act on what they've learned. The screen becomes a portal rather than a destination.</p>
+
+      <div class="cb-tool-chips">
+        <span class="cb-tool-chip">ChatGPT — initial build</span>
+        <span class="cb-tool-chip">Claude — improvements</span>
+        <span class="cb-tool-chip">Independent database</span>
+        <span class="cb-tool-chip">AR — in development</span>
+        <span class="cb-tool-chip">Bookshop.org integration</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cb-method">
+    <div class="cb-section-head">Five-step practice model</div>
+    <div class="cb-method-grid">
+      <div class="cb-method-step">
+        <div class="cb-method-num">01</div>
+        <div class="cb-method-title">Disclose the medium</div>
+        <div class="cb-method-body">State plainly that AI was involved. No apology, no hedging. Disclosure is the precondition for trust, not an admission of diminished authorship.</div>
+      </div>
+      <div class="cb-method-step">
+        <div class="cb-method-num">02</div>
+        <div class="cb-method-title">Bridge, not voice</div>
+        <div class="cb-method-body">The model carries you into legible form or back into fluent syntax. It does not decide what you have to say or what the work needs to mean.</div>
+      </div>
+      <div class="cb-method-step">
+        <div class="cb-method-num">03</div>
+        <div class="cb-method-title">Ear before mouth</div>
+        <div class="cb-method-body">The medium's architecture pushes toward constant generation. The discipline is receptivity first — listening for what's actually alive before producing more.</div>
+      </div>
+      <div class="cb-method-step">
+        <div class="cb-method-num">04</div>
+        <div class="cb-method-title">Toward lived difference</div>
+        <div class="cb-method-body">Write and build toward the specific, the sideways, the un-averaged — resisting the flattened center that RLHF trains every model toward by default.</div>
+      </div>
+      <div class="cb-method-step">
+        <div class="cb-method-num">05</div>
+        <div class="cb-method-title">Refuse both failure modes</div>
+        <div class="cb-method-body">Neither slop (all mouth, no ear, generate-and-paste) nor flaw-speak (deliberately degrading your own capability to evade detection). Both are the medium winning.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cb-section-head">§ 9 — Reference: the empirical case</div>
+
+  <div class="cb-ref">
+    <div class="cb-table-wrap">
+      <table class="cb-table">
+        <thead>
+          <tr>
+            <th>Study</th>
+            <th>Finding</th>
+            <th>Relevance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Liang et al., <em>Patterns</em> (Cell Press), 2023</td>
+            <td>GPT detectors carry a 61.3% false-positive rate on non-native English essays vs. 5.1% on native — the tool did not invent the bias, it scaled it.</td>
+            <td>Names who flaw-speak protects and who detection culture punishes first</td>
+          </tr>
+          <tr>
+            <td>Doshi &amp; Hauser, <em>Science Advances</em>, 2024</td>
+            <td>AI-assisted stories were 10.7% more similar to each other. Individual gain, collective flattening.</td>
+            <td>The homogenization risk Awomosu's "lived difference" directly resists</td>
+          </tr>
+          <tr>
+            <td>Agarwal, Naaman &amp; Vashistha, ACM CHI, 2025</td>
+            <td>AI suggestions pushed non-Western writers toward Western styles, altering both what and how they wrote.</td>
+            <td>First peer-reviewed evidence of AI-driven cultural stereotyping in writing</td>
+          </tr>
+          <tr>
+            <td>Atari, Xue, Park, Blasi &amp; Henrich, Harvard, 2023</td>
+            <td>GPT's psychological profile clusters with Western liberal nations (between Germany and New Zealand) on World Values Survey data. Alignment weakens with cultural distance from the US.</td>
+            <td>The empirical ZIP code behind "the Empire average" — why bridging outward requires deliberate resistance</td>
+          </tr>
+          <tr>
+            <td>Padmakumar &amp; He, ICLR, 2024</td>
+            <td>Writing with feedback-tuned (RLHF) models reduced lexical and content diversity, increasing similarity between different authors.</td>
+            <td>Traces homogenization to the specific mechanism: RLHF, not the base model</td>
+          </tr>
+          <tr>
+            <td>Shumailov et al., <em>Nature</em>, 2024</td>
+            <td>Model collapse: training on recursively generated synthetic data erodes the tails of the distribution over successive generations.</td>
+            <td>The technical mechanism behind why an averaging medium degrades without difference fed back in</td>
+          </tr>
+          <tr>
+            <td>Draxler et al., ACM TOCHI, 2024</td>
+            <td>Measurable gap between felt ownership and self-declared authorship when AI produces text — "the AI ghostwriter effect."</td>
+            <td>Names the dissociation Awomosu describes: pride replaced by feeling like a thief</td>
+          </tr>
+          <tr>
+            <td>Fan et al., <em>British Journal of Educational Technology</em>, 2025</td>
+            <td>ChatGPT improved essay scores but reduced metacognitive processes — evaluation, monitoring, reflection.</td>
+            <td>The ear going quiet while the mouth keeps moving — the risk the five-step model is built to prevent</td>
+          </tr>
+          <tr>
+            <td>Steen, Yurechko &amp; Klug, <em>Social Media + Society</em>, 2023</td>
+            <td>Peer-reviewed study of algospeak — language deliberately altered to evade algorithmic content moderation on TikTok.</td>
+            <td>The direct behavioral ancestor of flaw-speak — same evasion logic, opposite direction</td>
+          </tr>
+          <tr>
+            <td>Sharma et al., ICLR, 2024</td>
+            <td>Five RLHF-trained assistants consistently exhibit sycophancy — the training pipeline incentivizes flattery over truth.</td>
+            <td>The mechanism behind why default model output bends toward agreeable, not honest</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══ SOURCES ═══ -->
+  <div class="cb-sources">
+    <div class="cb-sources-head">Sources</div>
+    <ul class="cb-source-list">
+      <li>Cris Tolomia, <a href="https://qz.com/how-ai-actually-works" target="_blank" rel="noopener">"15 Things Everyone Should Understand About How AI Actually Works,"</a> Quartz, May 21, 2026</li>
+      <li>Karla Ortiz, <a href="https://www.judiciary.senate.gov/imo/media/doc/2023-07-12_pm_-_testimony_-_ortiz.pdf" target="_blank" rel="noopener">Senate Judiciary Committee testimony,</a> July 2023</li>
+      <li>David Baldacci / Copyright Alliance, <a href="https://copyrightalliance.org/artists-speak-out-harm-unlicenced-ai-ingestion/" target="_blank" rel="noopener">"Artists Speak Out on the Harms of Unlicensed AI Ingestion,"</a> Senate testimony summary, July 2025</li>
+      <li>UN University INWEH, <a href="https://unu.edu/inweh/news/environmental-cost-of-AIs-Enrgy-use-carbon-water-and-land-footprints" target="_blank" rel="noopener">"Rising Emissions, Depleting Water and Vanishing Land,"</a> June 2026</li>
+      <li>IEA, <a href="https://www.iea.org/reports/electricity-2026" target="_blank" rel="noopener">"Electricity 2026: Analysis and Forecast,"</a> 2026</li>
+      <li>Andrej Karpathy, <a href="https://twitter.com/karpathy/status/1733299213503787018" target="_blank" rel="noopener">X/Twitter on hallucination,</a> December 2023</li>
+      <li>Bender, Gebru et al., <a href="https://dl.acm.org/doi/10.1145/3442188.3445922" target="_blank" rel="noopener">"On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?"</a> FAccT 2021</li>
+      <li>Food &amp; Water Watch, <a href="https://www.foodandwaterwatch.org/wp-content/uploads/2026/02/FSW_2602_AI_Water_Energy_UPDATE.pdf" target="_blank" rel="noopener">"A No Brainer: How AI's Energy and Water Footprints Threaten Our Future,"</a> updated February 2026</li>
+      <li>Mongabay, <a href="https://news.mongabay.com/2025/11/ai-data-center-revolution-sucks-up-worlds-energy-water-materials/" target="_blank" rel="noopener">"AI Data Center Revolution Sucks Up World's Energy, Water, Materials,"</a> November 2025</li>
+      <li>Consumer Reports, <a href="https://www.consumerreports.org/data-centers/ai-data-centers-impact-on-electric-bills-water-and-more-a1040338678/" target="_blank" rel="noopener">"AI Data Centers: Big Tech's Impact on Electric Bills, Water, and More,"</a> March 2026</li>
+      <li>US Copyright Office, <a href="https://www.copyright.gov/ai/" target="_blank" rel="noopener">AI and Copyright guidance,</a> 2023–2026</li>
+      <li>Gary Marcus, <a href="https://garymarcus.substack.com/p/facing-facts" target="_blank" rel="noopener">"Facing Facts"</a> (on hallucination as structural), Substack</li>
+      <li>IEA, <a href="https://www.iea.org/reports/energy-and-ai" target="_blank" rel="noopener">"Energy and AI"</a> — per-query and data center projections, 2025</li>
+      <li>Presenc AI, <a href="https://presenc.ai/research/ai-data-center-energy-consumption-2026" target="_blank" rel="noopener">"AI Data Center Energy Consumption Statistics 2026,"</a> May 2026</li>
+      <li>aimultiple.com, <a href="https://aimultiple.com/ai-energy-consumption" target="_blank" rel="noopener">"AI Energy Consumption Statistics,"</a> 2026 — CogVideoX per-output figures</li>
+      <li>Alex Komoroske, <a href="https://medium.com/@komorama/the-iterative-adjacent-possible-af3e7038357d" target="_blank" rel="noopener">"The Iterative Adjacent Possible,"</a> Medium, 2023</li>
+      <li>Alex Komoroske, <a href="https://medium.com/@komorama/the-runaway-engine-of-society-95f19cf80a3f" target="_blank" rel="noopener">"The Runaway Engine of Society,"</a> Medium, 2019</li>
+      <li>Michael Garfield &amp; Alex Komoroske, <a href="https://michaelgarfield.substack.com/p/h-31" target="_blank" rel="noopener">"AI Doesn't Have To Be This Way,"</a> Humans on the Loop, ep. H-31, Feb 2026</li>
+      <li>Ivan Vendrov, <a href="https://nothinghuman.substack.com/p/the-tyranny-of-the-marginal-user" target="_blank" rel="noopener">"The Tyranny of the Marginal User,"</a> Nothing Human, Substack, 2023</li>
+      <li>Clay Shirky, <a href="http://shirky.com/essays/situated-software/" target="_blank" rel="noopener">"Situated Software,"</a> 2004</li>
+      <li>Kyla Scanlon, <a href="https://kyla.substack.com/p/the-most-valuable-commodity-in-the" target="_blank" rel="noopener">"The Most Valuable Commodity in the World is Friction,"</a> Substack</li>
+      <li>Abi Awomosu, <a href="https://abiawomosu.substack.com/p/writing-was-never-a-test-of-who-could" target="_blank" rel="noopener">"Writing Was Never a Test of Who Could Think,"</a> How Not To Use AI, June 2026</li>
+      <li>Liang et al., "GPT Detectors Are Biased Against Non-Native English Writers," <em>Patterns</em> (Cell Press), 2023 — DOI: 10.1016/j.patter.2023.100779</li>
+      <li>Doshi &amp; Hauser, "Generative AI Enhances Individual Creativity but Reduces Collective Diversity," <em>Science Advances</em>, 2024 — DOI: 10.1126/sciadv.adn5290</li>
+      <li>Agarwal, Naaman &amp; Vashistha, "AI Suggestions Homogenize Writing Toward Western Styles," ACM CHI, 2025 — DOI: 10.1145/3706598.3713564</li>
+      <li>Atari, Xue, Park, Blasi &amp; Henrich, "Which Humans Do LLMs Resemble?" Harvard Coevolution Lab, 2023 (preprint via OSF)</li>
+      <li>Padmakumar &amp; He, "Does Writing with Language Models Reduce Content Diversity?" ICLR, 2024 — arXiv:2309.05196</li>
+      <li>Shumailov et al., "AI Models Collapse When Trained on Recursively Generated Data," <em>Nature</em>, Vol. 631, 2024</li>
+      <li>Draxler et al., "The AI Ghostwriter Effect," ACM TOCHI, 2024 — DOI: 10.1145/3637875</li>
+      <li>Fan et al., "Beware of Metacognitive Laziness," <em>British Journal of Educational Technology</em>, 2025 — DOI: 10.1111/bjet.13544</li>
+      <li>Steen, Yurechko &amp; Klug, "You Can (Not) Say What You Want: Algospeak on TikTok," <em>Social Media + Society</em>, 2023 — DOI: 10.1177/20563051231194586</li>
+      <li>Sharma et al., "Towards Understanding Sycophancy in Language Models," ICLR, 2024 — arXiv:2310.13548</li>
+    </ul>
+  </div>
+
+  <!-- ═══ COLOPHON ═══ -->
+  <footer class="cb-colophon">
+    <div class="cb-colophon-left">
+      This broadside is a working document, not legal advice. Legal status changes as litigation proceeds.<br>
+      Not for commercial reproduction without permission. For educational and studio use.<br>
+      Digital Broadsides series — single-sheet, self-contained, designed to circulate.
+    </div>
+    <div class="cb-colophon-right">
+      <a class="cb-sig" href="https://chamy.xyz" target="_blank" rel="noopener">CHAMY<span class="cb-dot">·</span>XYZ</a>
+    </div>
+  </footer>
+
+</div><!-- end .cb-page -->
+
+<script>
+// Keyboard accessibility for pressure strips
+document.querySelectorAll('.cb-pressure').forEach(el => {
+  el.setAttribute('tabindex', '0');
+  el.setAttribute('role', 'button');
+  el.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      el.classList.toggle('open');
+    }
+  });
+});
+</script>
+</body>
+</html>
