@@ -124,13 +124,13 @@ body::before {
   color: var(--cb-slate);
 }
 
-.cb-title em { font-style: italic; font-weight: 300; color: var(--cb-slate-mid); }
+.cb-title em { font-style: normal; font-weight: 400; color: var(--cb-slate-mid); }
 
 .cb-subtitle {
   font-family: var(--ff-display);
   font-size: 1.05rem;
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 400;
+  font-style: normal;
   color: var(--cb-slate-mid);
   margin-top: .4rem;
   line-height: 1.5;
@@ -193,8 +193,8 @@ body::before {
 .cb-pull-quote {
   font-family: var(--ff-display);
   font-size: 1.2rem;
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 400;
+  font-style: normal;
   line-height: 1.5;
   color: var(--cb-slate);
 }
@@ -357,7 +357,7 @@ body::before {
   flex-shrink: 0;
 }
 
-.cb-flow-title { font-family: var(--ff-display); font-size: .95rem; font-weight: 400; font-style: italic; }
+.cb-flow-title { font-family: var(--ff-display); font-size: .95rem; font-weight: 400; font-style: normal; }
 .cb-flow-body { padding: 0; }
 
 .cb-step {
@@ -463,8 +463,8 @@ body::before {
 .cb-voice blockquote {
   font-family: var(--ff-display);
   font-size: .92rem;
-  font-style: italic;
-  font-weight: 300;
+  font-style: normal;
+  font-weight: 400;
   line-height: 1.65;
   color: var(--cb-slate);
   margin-bottom: .45rem;
@@ -637,7 +637,7 @@ table.cb-table td:first-child {
     </aside>
   </div>
 
-  <div class="cb-section-head">§ 1 — Five fault lines <span style="font-style:italic;font-family:var(--ff-display);text-transform:none;letter-spacing:0;font-size:.8rem;color:var(--cb-slate-soft);">tap any to expand</span></div>
+  <div class="cb-section-head">§ 1 — Five fault lines <span style="font-style:normal;font-family:var(--ff-display);text-transform:none;letter-spacing:0;font-size:.8rem;color:var(--cb-slate-soft);">tap any to expand</span></div>
 
   <div class="cb-pressure-grid">
 
@@ -1074,7 +1074,7 @@ table.cb-table td:first-child {
               letter-spacing="-.01em">${d.label}</text>`;
       s += `<text x="${labelW-10}" y="${barY+19}" text-anchor="end"
               font-family="'Roboto Condensed','Arial Narrow',sans-serif" fill="#9A9A94" font-size="7"
-              font-style="italic">${d.sub}</text>`;
+              >${d.sub}</text>`;
 
       s += `<rect x="${barX}" y="${barY}" width="${chartW}" height="${barH}"
               fill="${bgColors[d.cat]}" rx="1.5"/>`;
@@ -1136,7 +1136,7 @@ table.cb-table td:first-child {
       <rect x="237" y="168" width="206" height="64" rx="3" fill="#1C1C1A"/>
       <text x="340" y="187" text-anchor="middle" font-family="'Roboto Condensed',sans-serif" font-size="7.5" fill="#C9922A" letter-spacing="0.1em">KOMOROSKE · COMMON TOOLS · 2026</text>
       <text x="340" y="205" text-anchor="middle" font-family="'FFF Minnerva',serif" font-size="16" font-weight="400" fill="#F7F5F0">AI doesn't have to</text>
-      <text x="340" y="223" text-anchor="middle" font-family="'FFF Minnerva',serif" font-size="16" font-style="italic" font-weight="300" fill="#C9922A">be this way</text>
+      <text x="340" y="223" text-anchor="middle" font-family="'FFF Minnerva',serif" font-size="16" font-weight="400" fill="#C9922A">be this way</text>
 
       <rect x="262" y="42" width="156" height="54" rx="3" fill="#EDE9E0" stroke="#3A3A36" stroke-width="0.5"/>
       <text x="340" y="62"  text-anchor="middle" font-family="'FFF Minnerva',serif" font-size="13" font-weight="500" fill="#1C1C1A">Historical contingency</text>
@@ -1235,13 +1235,13 @@ table.cb-table td:first-child {
     .cb-case-name{font-family:var(--ff-display);font-size:1.15rem;font-weight:500;}
     .cb-case-tag{font-family:var(--ff-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cb-amber);}
     .cb-case-body{padding:1.25rem;}
-    .cb-case-frame{font-family:var(--ff-display);font-style:italic;font-weight:300;font-size:1rem;color:var(--cb-slate-mid);line-height:1.6;border-left:2px solid var(--cb-amber);padding-left:1rem;margin-bottom:1rem;}
+    .cb-case-frame{font-family:var(--ff-display);font-style:normal;font-weight:400;font-size:1rem;color:var(--cb-slate-mid);line-height:1.6;border-left:2px solid var(--cb-amber);padding-left:1rem;margin-bottom:1rem;}
     .cb-case-body p{font-size:.9rem;line-height:1.7;color:var(--cb-slate-mid);margin-bottom:.75rem;}
     .cb-case-body p:last-child{margin-bottom:0;}
     .cb-case-label{font-family:var(--ff-mono);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cb-amber-dim);display:block;margin-bottom:.3rem;margin-top:1rem;}
     .cb-case-label:first-child{margin-top:0;}
     .cb-flaw-def{background:var(--cb-ghost-warm);border:.5px solid var(--cb-rule);padding:.85rem 1rem;margin:1rem 0;}
-    .cb-flaw-def strong{font-family:var(--ff-display);font-style:italic;font-size:.95rem;color:var(--cb-slate);display:block;margin-bottom:.3rem;}
+    .cb-flaw-def strong{font-family:var(--ff-display);font-style:normal;font-size:.95rem;color:var(--cb-slate);display:block;margin-bottom:.3rem;}
     .cb-flaw-def span{font-size:.85rem;color:var(--cb-slate-mid);line-height:1.6;}
     .cb-tool-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:.5rem;}
     .cb-tool-chip{font-family:var(--ff-mono);font-size:.55rem;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:3px;background:var(--cb-ghost-warm);color:var(--cb-slate-mid);border:.5px solid var(--cb-rule);}
