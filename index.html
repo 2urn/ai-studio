@@ -62,6 +62,7 @@
 
   --max-w: 820px;
   --col-gap: 2rem;
+  --cb-card: #fff;
 }
 
 [data-theme="dark"] {
@@ -72,6 +73,7 @@
   --cb-ghost-warm:#222220;
   --cb-rule:      #3A3A36;
   --cb-rule-lt:   #2A2A27;
+  --cb-card:      #201F1D;
 }
 
 html { transition: background-color .2s ease; }
@@ -279,7 +281,7 @@ body::before {
 .cb-pressure[data-risk="high"]   { border-top-color: var(--cb-risk-hi); }
 .cb-pressure[data-risk="medium"] { border-top-color: var(--cb-risk-mid); }
 .cb-pressure[data-risk="active"] { border-top-color: var(--cb-amber); }
-.cb-pressure:hover { background: #fff; }
+.cb-pressure:hover { background: var(--cb-card); }
 
 .cb-p-index {
   font-family: var(--ff-mono);
@@ -358,7 +360,7 @@ body::before {
 
 .cb-p-detail p { margin-bottom: .3rem; }
 .cb-pressure.open .cb-p-detail { display: block; }
-.cb-pressure.open { background: #fff; }
+.cb-pressure.open { background: var(--cb-card); }
 
 .cb-pressure-note {
   font-family: var(--ff-mono);
@@ -374,7 +376,7 @@ body::before {
 .cb-flow {
   margin-bottom: 1.75rem;
   border: .5px solid var(--cb-rule);
-  background: #fff;
+  background: var(--cb-card);
 }
 
 .cb-flow-header {
@@ -487,7 +489,7 @@ body::before {
   break-inside: avoid;
   margin-bottom: 1rem;
   padding: .9rem 1rem;
-  background: #fff;
+  background: var(--cb-card);
   border: .5px solid var(--cb-rule);
   border-left: 2.5px solid var(--cb-rule);
 }
@@ -544,7 +546,7 @@ table.cb-table td {
   color: var(--cb-slate-mid);
 }
 
-table.cb-table tr:hover td { background: #fff; }
+table.cb-table tr:hover td { background: var(--cb-card); }
 table.cb-table tr:last-child td { border-bottom: none; }
 
 table.cb-table td:first-child {
@@ -1037,7 +1039,7 @@ table.cb-table td:first-child {
   </div>
 
   <style>
-    .cb-chart-wrap { margin-bottom: 2.5rem; background: #fff; border: .5px solid var(--cb-rule); padding: 1.25rem 1.25rem 1rem; }
+    .cb-chart-wrap { margin-bottom: 2.5rem; background: var(--cb-card); border: .5px solid var(--cb-rule); padding: 1.25rem 1.25rem 1rem; }
     .cb-chart-subtitle { font-family: var(--ff-mono); font-size: .58rem; color: var(--cb-slate-soft); letter-spacing: .03em; line-height: 1.65; margin-bottom: 1.25rem; }
     .cb-chart-note { font-family: var(--ff-mono); font-size: .55rem; color: var(--cb-slate-soft); letter-spacing: .02em; line-height: 1.7; margin-top: .9rem; border-top: .5px solid var(--cb-rule-lt); padding-top: .65rem; }
     #cb-energy-chart svg { display: block; width: 100%; overflow: visible; }
@@ -1140,7 +1142,7 @@ table.cb-table td:first-child {
   <style>
     .cb-counter-lede{font-size:1rem;line-height:1.8;color:var(--cb-slate);margin-bottom:1.75rem;max-width:560px;}
     .cb-counter-lede p+p{margin-top:.8rem;}
-    .cb-map-wrap{margin-bottom:.6rem;background:#fff;border:.5px solid var(--cb-rule);padding:1.25rem 1.25rem .75rem;}
+    .cb-map-wrap{margin-bottom:.6rem;background:var(--cb-card);border:.5px solid var(--cb-rule);padding:1.25rem 1.25rem .75rem;}
     .cb-map-caption{font-family:var(--ff-mono);font-size:.55rem;color:var(--cb-slate-soft);letter-spacing:.03em;line-height:1.65;margin-top:.65rem;border-top:.5px solid var(--cb-rule-lt);padding-top:.5rem;}
     .cb-map-caption a{color:var(--cb-slate-soft);text-decoration:underline;text-decoration-color:var(--cb-amber-lt);text-underline-offset:2px;}
     .cb-map-caption a:hover{color:var(--cb-amber);}
@@ -1149,7 +1151,7 @@ table.cb-table td:first-child {
     .cb-compare-table th{font-family:var(--ff-mono);font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cb-slate-soft);padding:.5rem .75rem;border-bottom:1px solid var(--cb-slate);text-align:left;font-weight:400;}
     .cb-compare-table th.alt-head{color:var(--cb-amber-dim);border-bottom-color:var(--cb-amber);}
     .cb-compare-table td{padding:.65rem .75rem;border-bottom:.5px solid var(--cb-rule-lt);vertical-align:top;line-height:1.55;color:var(--cb-slate-mid);}
-    .cb-compare-table tr:hover td{background:#fff;}
+    .cb-compare-table tr:hover td{background:var(--cb-card);}
     .cb-compare-table tr:last-child td{border-bottom:none;}
     .cb-compare-table td:first-child{font-family:var(--ff-display);font-size:.88rem;font-weight:500;color:var(--cb-slate);width:16%;}
     .cb-compare-table td:nth-child(2){width:40%;background:var(--cb-ghost-warm);}
@@ -1271,7 +1273,7 @@ table.cb-table td:first-child {
   <style>
     .cb-practice-lede{font-size:1rem;line-height:1.8;color:var(--cb-slate);margin-bottom:2rem;max-width:600px;}
     .cb-practice-lede p+p{margin-top:.8rem;}
-    .cb-case{background:#fff;border:.5px solid var(--cb-rule);margin-bottom:1.75rem;}
+    .cb-case{background:var(--cb-card);border:.5px solid var(--cb-rule);margin-bottom:1.75rem;}
     .cb-case-head{background:var(--cb-slate);color:var(--cb-ghost);padding:.85rem 1.25rem;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.5rem;}
     .cb-case-name{font-family:var(--ff-display);font-size:1.15rem;font-weight:500;}
     .cb-case-tag{font-family:var(--ff-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cb-amber);}
@@ -1288,7 +1290,7 @@ table.cb-table td:first-child {
     .cb-tool-chip{font-family:var(--ff-mono);font-size:.55rem;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:3px;background:var(--cb-ghost-warm);color:var(--cb-slate-mid);border:.5px solid var(--cb-rule);}
     .cb-method{margin:2rem 0;}
     .cb-method-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;}
-    .cb-method-step{background:#fff;border:.5px solid var(--cb-rule);border-top:2.5px solid var(--cb-amber);padding:.9rem 1rem;}
+    .cb-method-step{background:var(--cb-card);border:.5px solid var(--cb-rule);border-top:2.5px solid var(--cb-amber);padding:.9rem 1rem;}
     .cb-method-num{font-family:var(--ff-mono);font-size:.55rem;color:var(--cb-amber-dim);letter-spacing:.08em;margin-bottom:.35rem;}
     .cb-method-title{font-family:var(--ff-display);font-size:.98rem;font-weight:500;color:var(--cb-slate);margin-bottom:.35rem;line-height:1.3;}
     .cb-method-body{font-size:.8rem;color:var(--cb-slate-mid);line-height:1.55;}
