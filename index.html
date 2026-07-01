@@ -63,6 +63,7 @@
   --max-w: 820px;
   --col-gap: 2rem;
   --cb-card: #fff;
+  --cb-hover: #F5F2EC;
 }
 
 [data-theme="dark"] {
@@ -74,6 +75,7 @@
   --cb-rule:      #3A3A36;
   --cb-rule-lt:   #2A2A27;
   --cb-card:      #201F1D;
+  --cb-hover:     #2C2B27;
 }
 
 html { transition: background-color .2s ease; }
@@ -1156,7 +1158,7 @@ table.cb-table td:first-child {
     .cb-compare-table td:first-child{font-family:var(--ff-display);font-size:.88rem;font-weight:500;color:var(--cb-slate);width:16%;}
     .cb-compare-table td:nth-child(2){width:40%;background:var(--cb-ghost-warm);}
     .cb-compare-table td:nth-child(3){width:44%;border-left:2px solid var(--cb-amber-lt);}
-    .cb-compare-table tr:hover td:nth-child(2){background:#F5F2EC;}
+    .cb-compare-table tr:hover td:nth-child(2){background:var(--cb-hover);}
     .cb-komo-note{display:inline-block;font-family:var(--ff-mono);font-size:.52rem;letter-spacing:.06em;color:var(--cb-amber-dim);margin-top:.25rem;}
   </style>
 
