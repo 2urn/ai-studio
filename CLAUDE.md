@@ -90,8 +90,28 @@ finds an orphan page**, so every broadside should link to an index. And **a seri
 title is registrable where a single work's title is not** — so "CHAMY·XYZ BROADSIDES"
 can be an asset that no individual piece can be.
 
-### ONE FILE, ALWAYS
+### ONE FILE, ALWAYS — AND THIS REPO DOES NOT YET MEET IT
 
-Everything inlined. No build step, no dependencies, opens from a folder on a desktop,
-still opens in 2046. For a resource meant to be passed on, that is not a constraint —
-it is the point, and it is the most indie-web idea in the catalogue.
+The rule, from `radi/CLAUDE.md`: everything inlined, no build step, no dependencies,
+opens from a folder on a desktop, still opens in 2046. For a resource meant to be
+passed on that is the point rather than a constraint, and it is the most indie-web
+idea in the catalogue.
+
+**`index.html` currently breaks it.** It reaches for three sibling files:
+
+    url('fonts/FFont-Bold.woff2')  ·  -Hairline  ·  -Regular
+
+Send somebody the HTML alone and the typography silently falls back — the page looks
+merely *plain*, so nobody reports it, they just think less of it. That is the exact
+failure the one-file rule exists to prevent.
+
+**Fix: inline the three faces as `data:` URIs** inside the `@font-face` blocks. Adds
+roughly 200 KB and removes the only real dependency. The Google Fonts link may stay;
+it is the documented exception.
+
+### THE FONT IS ALSO A LICENSING QUESTION, NOT ONLY A PACKAGING ONE
+
+`FFont` is the same family sitting in the **public** repo `2urn/f`. If it is a
+licensed commercial typeface, it is now exposed in two places, and inlining it here
+puts a redistributable copy inside a document meant to be passed on. **Settle what
+`FFont` actually is before inlining anything** — see triage#1.
